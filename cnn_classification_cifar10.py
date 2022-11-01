@@ -1,4 +1,5 @@
 import torchvision
+from largeModel import ANet
 from model import CNN_small
 import numpy as np
 import torch
@@ -118,7 +119,7 @@ if __name__ == '__main__':
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=test_batch_size, shuffle=False)
 
     # create neural network object
-    network = CNN_small(in_dim=input_dim, out_dim=out_dim)
+    network = ANet(in_dim=input_dim, out_dim=out_dim)
     network = network.to(device)
 
     # set up optimizer
