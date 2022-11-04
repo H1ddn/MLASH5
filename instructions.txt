@@ -1,0 +1,12 @@
+The files included in the submission are
+	1. 4 python files
+		a. model.py - Contains the model initially provided for the warm-up task in CNN_small, as well as the model for the warm-up task that achieves a test accuracy of 70% on CIFAR10 in CNN
+		b. largeModel.py - Contains the large model that achieves above 75% testing accuracy on the buildings data in ANet
+		c. cnn_classification_cifar10.py - Runs model.py with the hyperparameters and optimizer pertaining to the CNN model that achieves 70% testing accuracy on CIFAR10
+		(Command: python cnn_classification_cifar10.py)
+		d. train_buildings.py - Runs largeModel.py using building images to achieve above 75% testing accuracy
+		(Command: python train_buildings.py)
+	2. QuestionAnswers.pdf - Contains the answers to the short answer questions in the homework pdf
+	3. instructions.txt - Contains meanings of files in submission and instructions to run the models
+
+All models are running using the data provided in the startup_files with the same directory structure as provided.
