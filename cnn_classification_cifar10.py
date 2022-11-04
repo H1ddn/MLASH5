@@ -1,5 +1,6 @@
 import torchvision
 from largeModel import ANet
+from model import CNN
 from model import CNN_small
 import numpy as np
 import torch
@@ -103,6 +104,7 @@ if __name__ == '__main__':
     test_batch_size = 100
     n_epochs = 30
     learning_rate = 1e-3
+    regularization = 1e-4
     seed = 100
     input_dim = (3,32,32)
     out_dim = 10
@@ -119,11 +121,12 @@ if __name__ == '__main__':
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=test_batch_size, shuffle=False)
 
     # create neural network object
-    network = ANet(in_dim=input_dim, out_dim=out_dim)
+    network = CNN(in_dim=input_dim, out_dim=out_dim)
     network = network.to(device)
 
     # set up optimizer
-    optimizer = optim.Adamax(network.parameters(), lr=learning_rate, weight_decay=0.0001)
+    # previous optimizer: optimizer = optim.SGD(network.parameters(), lr=learning_rate, momentum=momentum)
+    optimizer = optim.Adamax(network.parameters(), lr=learning_rate, weight_decay=regularization)
 
     # training loop
     for epoch in range(1, n_epochs + 1):
